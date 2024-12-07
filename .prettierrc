@@ -1,0 +1,15 @@
+{
+  "plugins": ["@prettier/plugin-pug"],
+  "pugFramework": "vue",
+  "endOfLine": "auto",
+  "trailingComma": "es5",
+  "semi": false,
+  "pugSemi": "true",
+  "useTabs": true,
+  "arrowParens": "avoid",
+  "pugPrintWidth": 1000000,
+  "pugAttributeSeparator": "none",
+  "pugEmptyAttributes": "none",
+  "pugClassNotation": "literal",
+  "pugIdNotation": "literal"
+}
