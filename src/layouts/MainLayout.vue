@@ -3,7 +3,7 @@ QLayout.bg-grey-2(view="hHh lpr lFf")
 	QHeader(elevated)
 		QToolbar
 			QBtn(v-if="$q.screen.lt.md" flat dense round icon="sym_o_menu" ariaLabel="Menu" @click="toggleLeftDrawer")
-			QToolbarTitle PSevertson
+			QToolbarTitle Psevertson's Home Page
 
 	QDrawer.bg-grey-2(v-model="leftDrawerOpen" showIfAbove bordered)
 		QList(separator)
@@ -22,9 +22,16 @@ QLayout.bg-grey-2(view="hHh lpr lFf")
 	QPageContainer
 		QPage
 			.scroll-y.absolute-full.q-py-md.column.no-wrap.q-gutter-y-md.items-center
-				h1 Projects
-				QCard.q-pa-sm(bordered style="width: 500px; max-width: 90vw")
-					h4 Coming Soon...
+				h2.q-mt-xl Awesome Projects
+				template(v-for="row in data" :key="row.name")
+					QCard.q-pa-sm(bordered style="width: 500px; max-width: 90vw")
+						QCardSection(horizontal)
+							.col.q-pa-md
+								.text-h5.q-mb-xs {{ row.name }}
+								.text-caption.text-grey {{ row.description }}
+							QSeparator(vertical)
+							QCardActions.justify-center(vertical)
+								QBtn(flat round color="primary" icon="sym_o_link" target="_blank" :href="row.link")
 </template>
 
 <script setup lang="ts">
@@ -35,4 +42,12 @@ const leftDrawerOpen = ref(false)
 function toggleLeftDrawer() {
 	leftDrawerOpen.value = !leftDrawerOpen.value
 }
+
+const data = ref([
+	{
+		name: "Birthday Freebies",
+		description: "Awesome list of Birthday Deals, Coupons, and Freebies",
+		link: "/birthday-freebies",
+	},
+])
 </script>
